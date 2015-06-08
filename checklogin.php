@@ -3,7 +3,7 @@
 $host="127.0.0.1"; // Host name 
 $username="root"; // Mysql username 
 $password=""; // Mysql password 
-$db_name="sedb"; // Database name 
+$db_name="article"; // Database name 
 $tbl_name="members"; // Table name 
 
 // Connect to server and select databse.
@@ -19,7 +19,7 @@ $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
 $myusername = mysql_real_escape_string($myusername);
 $mypassword = mysql_real_escape_string($mypassword);
-$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM $tbl_name WHERE name='$myusername' and password='$mypassword'";
 $result=mysql_query($sql);
 
 // Mysql_num_row is counting table row
@@ -31,7 +31,7 @@ if($count==1){
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 $_SESSION['myusername'] = $myusername;
 $_SESSION['mypassword']= $mypassword;
-header("location:login_success.php");
+header("location:mainPage.php");
 }
 else {
 echo "Wrong Username or Password";
